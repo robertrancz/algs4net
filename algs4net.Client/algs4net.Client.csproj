@@ -35,6 +35,10 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>tobe.txt</TargetPath>
         </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\words3.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>words3.txt</TargetPath>
+        </ContentWithTargetPath>
     </ItemGroup>
 
 </Project>

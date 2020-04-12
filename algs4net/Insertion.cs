@@ -22,6 +22,7 @@
  ******************************************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
@@ -103,10 +104,12 @@ namespace algs4net
         /// <param name="a">a the array</param>
         /// <param name="comparator">comparator the comparator specifying the order</param>
         ///
-        public static void Sort(object[] a, System.Collections.Comparer comparator)
+        public static void Sort(object[] a, Comparer comparator)
         {
             if (a == null)
                 throw new ArgumentNullException(nameof(a), "The array to be sorted cannot be null");
+            if (comparator == null)
+                throw new ArgumentNullException(nameof(comparator), "The comparator cannot be null");
 
             int N = a.Length;
             for (int i = 0; i < N; i++)
