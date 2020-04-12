@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\algs4net\algs4net.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestInput\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="TestInput\stack-test-input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <TargetPath>stack-test-input.txt</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+</Project>

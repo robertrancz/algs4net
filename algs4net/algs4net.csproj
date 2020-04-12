@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Product>Algorithms for .NET</Product>
+    <Description>Based on the algs4 java package developed by Robert Sedgewick and Kevin Wayne.</Description>
+    <Copyright>(c) 2020</Copyright>
+    <Company>-</Company>
+    <Authors>Robert Rancz</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+</Project>
