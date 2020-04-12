@@ -57,7 +57,7 @@ namespace algs4net
             n = 0;
         }
 
-        /// <summary>Returns the item least recently added to this queue.</summary>        
+        /// <summary>Returns the item least recently added to this queue.</summary>
         /// <exception cref="InvalidOperationException">Queue underflow</exception>
         public Item Peek()
         {
@@ -70,15 +70,17 @@ namespace algs4net
         public void Enqueue(Item item)
         {
             Node oldlast = last;
-            last = new Node();
-            last.item = item;
-            last.next = null;
+            last = new Node
+            {
+                item = item,
+                next = null
+            };
             if (IsEmpty)
                 first = last;
             else
                 oldlast.next = last;
             n++;
-            Debug.Assert(check());
+            Debug.Assert(Check());
         }
 
         /// <summary>
@@ -94,7 +96,7 @@ namespace algs4net
             n--;
             if (IsEmpty)
                 last = null;   // to avoid loitering
-            Debug.Assert(check());
+            Debug.Assert(Check());
             return item;
         }
 
@@ -105,12 +107,12 @@ namespace algs4net
         {
             StringBuilder s = new StringBuilder();
             foreach (Item item in this)
-                s.Append(item + " ");
+                s.Append(item).Append(' ');
             return s.ToString();
         }
 
         // check internal invariants
-        private bool check()
+        private bool Check()
         {
             if (n < 0)
             {
@@ -169,7 +171,7 @@ namespace algs4net
         private class ListEnumerator : IEnumerator<Item>
         {
             private Node current = null;
-            private Queue<Item> queue = null;
+            private readonly Queue<Item> queue = null;
             private bool firstCall = true;
 
             public ListEnumerator(Queue<Item> collection)

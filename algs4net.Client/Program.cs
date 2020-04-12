@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace algs4net.Client
 {
-    class Program
+    internal static class Program
     {
         private static readonly Assembly asm = Assembly.GetAssembly(typeof(algs4net.TextInput));
         private static readonly string mainTest = "MainTest";
@@ -29,6 +29,7 @@ namespace algs4net.Client
                 }
                 else
                     name = t0.Name;
+
                 allNames.Add(name);
             }
             return allNames;
@@ -69,7 +70,7 @@ namespace algs4net.Client
         // helper methods for console demo
         private static void DisplayHelp()
         {
-            string cmd = "algscmd";
+            const string cmd = "algscmd";
             string[] helpText =
             {
         "\nUsage:\n",
@@ -138,9 +139,9 @@ namespace algs4net.Client
         /// and inject the proper parameters to the test.
         /// </summary>
         /// <param name="args">Command line parameters to the program</param>
-        /// 
+        ///
         [STAThread]
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // help options
             if (args.Length == 0)

@@ -8,15 +8,16 @@ namespace algs4net
     [AttributeUsage(AttributeTargets.Method)]
     public sealed class HelpTextAttribute : Attribute
     {
+
         /// <summary>
         /// Usage of a test method
         /// </summary>
-        public readonly string Usage;
+        public string Usage { get; }
 
         /// <summary>
         /// Additional details about the <c>Usage</c>
         /// </summary>
-        public readonly string Details;
+        public string Details { get; }
 
         private HelpTextAttribute() { }
 
@@ -27,8 +28,8 @@ namespace algs4net
         /// <param name="details">Description of command line arguments, if any</param>
         public HelpTextAttribute(string usage, string details = "")
         {
-            Usage = usage;
             Details = details;
+            Usage = usage;
         }
     }
 }

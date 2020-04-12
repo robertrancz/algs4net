@@ -12,7 +12,7 @@ namespace algs4net
     /// and adapt from the <c>StdIn</c> class from the textbook.</para></summary>
     /// <remarks>
     /// For additional documentation,
-    /// see <a href="http://introcs.cs.princeton.edu/15inout">Section 1.5</a> of   
+    /// see <a href="http://introcs.cs.princeton.edu/15inout">Section 1.5</a> of
     /// <c>Introduction to Programming in Java: An Interdisciplinary Approach</c>
     /// by Robert Sedgewick and Kevin Wayne.</remarks>
     ///
@@ -46,13 +46,16 @@ namespace algs4net
         // get the next white space separated token from the buffer
         private void NextToken()
         {
-            if (buffer == "") buffer = input.ReadLine();
+            if (string.IsNullOrEmpty(buffer))
+                buffer = input.ReadLine();
+
             if (buffer != null)
             {
                 Match m = Regex.Match(buffer, @"\s*\S+\s*", RegexOptions.Compiled);
                 buffer = buffer.Substring(m.Value.Length);
                 nextToken = m.Value.Trim();
-                if (nextToken.Equals("")) buffer = ""; // blank line
+                if (string.IsNullOrEmpty(nextToken))
+                    buffer = ""; // blank line
                 newBuffer = false;
             }
         }
@@ -60,7 +63,7 @@ namespace algs4net
         // see if there it a token without removing it from the buffer
         private void TryNextToken()
         {
-            if (buffer.Equals(""))
+            if (string.IsNullOrEmpty(buffer))
             {
                 buffer = input.ReadLine();
                 newBuffer = true;
@@ -94,8 +97,7 @@ namespace algs4net
             TryNextToken();
             if (buffer == null)
                 return false;
-            int dummy;
-            return int.TryParse(nextToken, out dummy);
+            return int.TryParse(nextToken, out _);
         }
 
         /// <summary>
@@ -125,8 +127,7 @@ namespace algs4net
             TryNextToken();
             if (buffer == null)
                 return false;
-            double dummy;
-            return double.TryParse(nextToken, out dummy);
+            return double.TryParse(nextToken, out _);
         }
 
         /// <summary>
@@ -153,14 +154,14 @@ namespace algs4net
         /// <returns>true if a char can be obtained from the next read</returns>
         public bool HasNextChar()
         {
-            if (buffer.Equals(""))
+            if (string.IsNullOrEmpty(buffer))
             {
                 buffer = input.ReadLine();
                 newBuffer = true;
             }
             if (buffer == null)
                 return false;
-            return (buffer != "");
+            return !string.IsNullOrEmpty(buffer);
         }
 
         /// <summary>
@@ -170,7 +171,7 @@ namespace algs4net
         /// <returns>a char</returns>
         public char ReadChar()
         {
-            if (buffer.Equals(""))
+            if (string.IsNullOrEmpty(buffer))
             {
                 buffer = input.ReadLine();
                 newBuffer = true;
@@ -185,7 +186,9 @@ namespace algs4net
                 return nextChar;
             }
             else
+            {
                 throw new FormatException("error reading char");
+            }
         }
 
         /// <summary>
@@ -195,7 +198,7 @@ namespace algs4net
         public bool HasNextString()
         {
             TryNextToken();
-            return (nextToken != "");
+            return !string.IsNullOrEmpty(nextToken);
         }
 
         /// <summary>
@@ -216,12 +219,9 @@ namespace algs4net
         public bool HasNextBool()
         {
             TryNextToken();
-            if (nextToken.Equals("true", StringComparison.InvariantCultureIgnoreCase) ||
+            return nextToken.Equals("true", StringComparison.InvariantCultureIgnoreCase) ||
                 nextToken.Equals("false", StringComparison.InvariantCultureIgnoreCase) ||
-                nextToken.Equals("1") || nextToken.Equals("0"))
-                return true;
-            else
-                return false;
+                nextToken.Equals("1") || nextToken.Equals("0");
         }
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace algs4net
         public bool HasNextLine()
         {
             TryNextToken();
-            return (buffer != null);
+            return buffer != null;
         }
 
         /// <summary>
@@ -284,11 +284,10 @@ namespace algs4net
         /// <returns>the array of strings</returns>
         public string[] ReadAllStrings()
         {
-            List<string> allStrs = new List<string>();
-            string[] ss = null;
             string bigStr = ReadAll();
-            ss = WhiteSpace.Split(bigStr.Trim());
+            string[] ss = WhiteSpace.Split(bigStr.Trim());
             /*
+            List<string> allStrs = new List<string>();
             buffer = input.ReadLine();
             while (buffer != null)
             {
@@ -349,7 +348,7 @@ namespace algs4net
         /// </summary>
         public void Close()
         {
-            if (input != null) input.Close();
+            input?.Close();
         }
 
         /// <summary>

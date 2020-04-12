@@ -40,7 +40,7 @@ namespace algs4net.Test
         {
             var sb = new StringBuilder();
             foreach (int i in input)
-                sb.Append(i + " ");
+                sb.Append(i).Append(' ');
             return sb.ToString();
         }
     }

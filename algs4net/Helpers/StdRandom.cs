@@ -45,6 +45,7 @@
  ******************************************************************************/
 
 using System;
+using System.Diagnostics;
 
 namespace algs4net
 {
@@ -57,7 +58,7 @@ namespace algs4net
     /// see <a href="http://introcs.cs.princeton.edu/22library">Section 2.2</a> of
     /// <em>Introduction to Programming in Java: An Interdisciplinary Approach</em>
     /// by Robert Sedgewick and Kevin Wayne.
-    /// <para>This class is a C# port from the original Java class 
+    /// <para>This class is a C# port from the original Java class
     /// <a href="http://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/StdRandom.java.html">StdRandom</a> implementation by
     /// Robert Sedgewick and Kevin Wayne.</para></remarks>
     ///
@@ -146,7 +147,7 @@ namespace algs4net
         public static double Uniform(double a, double b)
         {
             if (!(a < b)) throw new ArgumentException("Invalid range");
-            return a + Uniform() * (b - a);
+            return a + (Uniform() * (b - a));
         }
 
         /// <summary>
@@ -188,7 +189,7 @@ namespace algs4net
             {
                 x = Uniform(-1.0, 1.0);
                 y = Uniform(-1.0, 1.0);
-                r = x * x + y * y;
+                r = (x * x) + (y * y);
             } while (r >= 1 || r == 0);
             return x * Math.Sqrt(-2 * Math.Log(r) / r);
 
@@ -206,7 +207,7 @@ namespace algs4net
         ///
         public static double Gaussian(double mu, double sigma)
         {
-            return mu + sigma * Gaussian();
+            return mu + (sigma * Gaussian());
         }
 
         /// <summary>
@@ -295,7 +296,7 @@ namespace algs4net
         public static int Discrete(double[] probabilities)
         {
             if (probabilities == null) throw new ArgumentNullException("Argument array is null");
-            double EPSILON = 1E-14;
+            const double EPSILON = 1E-14;
             double sum = 0.0;
             for (int i = 0; i < probabilities.Length; i++)
             {
@@ -314,7 +315,7 @@ namespace algs4net
                 sum = 0.0;
                 for (int i = 0; i < probabilities.Length; i++)
                 {
-                    sum = sum + probabilities[i];
+                    sum += probabilities[i];
                     if (sum > r) return i;
                 }
             }
@@ -355,7 +356,7 @@ namespace algs4net
             }
 
             // can't reach here
-            System.Diagnostics.Debug.Assert(false);
+            Debug.Assert(false);
             return -1;
         }
 
@@ -366,7 +367,7 @@ namespace algs4net
         /// <returns>a random real number from an exponential distribution with
         ///        rate <c>lambda</c></returns>
         /// <exception cref="ArgumentException">unless <c>lambda > 0.0</c></exception>
-        /// 
+        ///
         public static double Exp(double lambda)
         {
             if (!(lambda > 0.0))
@@ -378,7 +379,7 @@ namespace algs4net
         /// Rearranges the elements of the specified array in uniformly random order.</summary>
         /// <param name="a">a the array to shuffle</param>
         /// <exception cref="ArgumentNullException">if <c>a</c> is <c>null</c></exception>
-        /// 
+        ///
         public static void Shuffle(Object[] a)
         {
             if (a == null) throw new ArgumentNullException("argument array is null");
@@ -396,7 +397,7 @@ namespace algs4net
         /// Rearranges the elements of the specified array in uniformly random order.</summary>
         /// <param name="a"> a the array to shuffle</param>
         /// <exception cref="ArgumentNullException">if <c>a</c> is <c>null</c></exception>
-        /// 
+        ///
         public static void Shuffle(double[] a)
         {
             if (a == null) throw new ArgumentNullException("argument array is null");

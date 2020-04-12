@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace algs4net
 {
-    static class OrderHelper
+    internal static class OrderHelper
     {
         // TODO: Factor more comparison methods into this class
 
@@ -64,7 +64,6 @@ namespace algs4net
         {
             return comparator.Compare(v, w) < 0;
         }
-
 
         // is v > w ?
 

@@ -23,7 +23,7 @@ namespace algs4net
     /// For additional documentation,
     /// see <a href="http://algs4.cs.princeton.edu/13stacks">Section 1.3</a> of
     /// <em>Algorithms, 4th Edition</em> by Robert Sedgewick and Kevin Wayne.
-    /// <para>This class is a C# port from the original Java class 
+    /// <para>This class is a C# port from the original Java class
     /// <a href="http://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/LinkedStack.java.html">LinkedStack</a> implementation by
     /// Robert Sedgewick and Kevin Wayne.</para></remarks>
     ///
@@ -46,7 +46,7 @@ namespace algs4net
         {
             first = null;
             N = 0;
-            Debug.Assert(check());
+            Debug.Assert(Check());
         }
 
         /// <summary>
@@ -74,11 +74,13 @@ namespace algs4net
         public void Push(Item item)
         {
             Node oldfirst = first;
-            first = new Node();
-            first.item = item;
-            first.next = oldfirst;
+            first = new Node
+            {
+                item = item,
+                next = oldfirst
+            };
             N++;
-            Debug.Assert(check());
+            Debug.Assert(Check());
         }
 
         /// <summary>
@@ -92,7 +94,7 @@ namespace algs4net
             Item item = first.item;
             first = first.next;
             N--;
-            Debug.Assert(check());
+            Debug.Assert(Check());
             return item;
         }
 
@@ -115,10 +117,9 @@ namespace algs4net
         {
             StringBuilder s = new StringBuilder();
             foreach (Item item in this)
-                s.Append(item + " ");
+                s.Append(item).Append(' ');
             return s.ToString();
         }
-
 
         /// <summary>
         /// Returns an iterator that iterates over the items in this queue in FIFO order.</summary>
@@ -134,12 +135,11 @@ namespace algs4net
             return this.GetEnumerator();
         }
 
-
         // an iterator, doesn't implement remove() since it's optional
         private class ListEnumerator : IEnumerator<Item>
         {
             private Node current = null;
-            private Stack<Item> stack = null;
+            private readonly Stack<Item> stack = null;
             private bool firstCall = true;
 
             public ListEnumerator(Stack<Item> collection)
@@ -188,9 +188,8 @@ namespace algs4net
         }
 
         // check internal invariants
-        private bool check()
+        private bool Check()
         {
-
             // check a few properties of instance variable 'first'
             if (N < 0)
             {
@@ -217,9 +216,7 @@ namespace algs4net
             {
                 numberOfNodes++;
             }
-            if (numberOfNodes != N) return false;
-
-            return true;
+            return numberOfNodes == N;
         }
 
         /// <summary>
