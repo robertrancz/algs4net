@@ -14,11 +14,27 @@
     <Folder Include="TestInput\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ContentWithTargetPath Include="TestInput\stack-test-input.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        <TargetPath>stack-test-input.txt</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
+    <ItemGroup>
+        <ContentWithTargetPath Include="TestInput\stack-test-input.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>stack-test-input.txt</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\8words.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>8words.txt</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\emails.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>emails.txt</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\tiny.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>tiny.txt</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\tobe.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>tobe.txt</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
 
 </Project>
