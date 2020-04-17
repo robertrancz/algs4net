@@ -8,7 +8,6 @@ namespace algs4net
     [AttributeUsage(AttributeTargets.Method)]
     public sealed class HelpTextAttribute : Attribute
     {
-
         /// <summary>
         /// Usage of a test method
         /// </summary>

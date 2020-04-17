@@ -46,7 +46,7 @@ namespace algs4net
     /// <remarks>
     /// For additional documentation, see <a href="http://algs4.cs.princeton.edu/21elementary">Section 2.1</a> of
     /// <em>Algorithms, 4th Edition</em> by Robert Sedgewick and Kevin Wayne.
-    /// <para>This class is a C# port from the original Java class 
+    /// <para>This class is a C# port from the original Java class
     /// <a href="http://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Insertion.java.html">Insertion</a> implementation by
     /// Robert Sedgewick and Kevin Wayne.
     /// </para></remarks>
@@ -65,7 +65,7 @@ namespace algs4net
         {
             if(a == null)
                 throw new ArgumentNullException(nameof(a), "The array to be sorted cannot be null");
-            
+
             int N = a.Length;
             for (int i = 0; i < N; i++)
             {

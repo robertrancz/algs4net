@@ -36,7 +36,7 @@ namespace algs4net
     /// <remarks><para>
     /// For additional documentation, see <a href="http://algs4.cs.princeton.edu/22mergesort">Section 2.2</a> of
     /// <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.</para>
-    /// <para>This class is a C# port from the original Java class 
+    /// <para>This class is a C# port from the original Java class
     /// <a href="http://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/MergeX.java.html">MergeX</a>
     /// implementation by the respective authors.</para></remarks>
     ///
@@ -140,7 +140,6 @@ namespace algs4net
             Debug.Assert(OrderHelper.IsSorted(dst, lo, hi, comparator));
         }
 
-
         private static void Sort<T>(T[] src, T[] dst, int lo, int hi, Comparer<T> comparator)
         {
             // if (hi <= lo) return;
@@ -164,11 +163,11 @@ namespace algs4net
 
         /// <summary>
         /// Reads in a sequence of strings from standard input; mergesorts them
-        /// (using an optimized version of mergesort); 
-        /// and prints them to standard output in ascending order. 
+        /// (using an optimized version of mergesort);
+        /// and prints them to standard output in ascending order.
         /// </summary>
         /// <param name="args">Place holder for user arguments</param>
-        /// 
+        ///
         [HelpText("algscmd MergeX < words3.txt", "Input strings to be printed in sorted order")]
         public static void MainTest(string[] args)
         {
