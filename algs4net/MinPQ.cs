@@ -316,7 +316,7 @@ namespace algs4net
         }
 
         // additional test
-        static void TopInts()
+        private static void TopInts()
         {
             int[] allInts = { 12, 11, 8, 7, 9, 5, 4, 3, 2, 29, 23, 1, 24, 30, 9, 4, 88, 5, 100, 29, 23, 5, 99, 87, 22, 111 };
             //MinPQ<int> pq0 = new MinPQ<int>(allInts);
