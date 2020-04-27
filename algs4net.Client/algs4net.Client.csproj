@@ -27,9 +27,17 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>emails.txt</TargetPath>
         </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\mediumG.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>mediumG.txt</TargetPath>
+        </ContentWithTargetPath>
         <ContentWithTargetPath Include="TestInput\tiny.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>tiny.txt</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="TestInput\tinyG.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>tinyG.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="TestInput\tobe.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
