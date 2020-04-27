@@ -119,7 +119,7 @@ namespace algs4net
         ///
         public bool Contains(Key key)
         {
-            if (key == null) throw new ArgumentNullException("argument to contains() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             return Get(key) != null;
         }
 
@@ -154,7 +154,7 @@ namespace algs4net
         ///
         public object Get(Key key)
         {
-            if (key == null) throw new ArgumentNullException("argument to Get() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             return Get(root, key);
         }
 
@@ -178,7 +178,7 @@ namespace algs4net
         ///
         public void Put(Key key, Value val)
         {
-            if (key == null) throw new ArgumentNullException("first argument to put() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             if (val == null)
             {
                 Delete(key);
@@ -245,7 +245,7 @@ namespace algs4net
         ///
         public void Delete(Key key)
         {
-            if (key == null) throw new ArgumentNullException("argument to delete() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             if (IsEmpty) return; // indexer semantics
                                  // special case of one-node tree
             if (Count == 1)
@@ -327,7 +327,7 @@ namespace algs4net
         ///
         public Key Floor(Key key)
         {
-            if (key == null) throw new ArgumentNullException("argument to floor() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             if (IsEmpty) throw new InvalidOperationException("called Floor() with empty symbol table");
             Node x = Floor(root, key);
             if (x == null) throw new KeyNotFoundException("floor key does not exist");
@@ -354,7 +354,7 @@ namespace algs4net
         ///
         public Key Ceiling(Key key)
         {
-            if (key == null) throw new ArgumentNullException("argument to Ceiling() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             if (IsEmpty) throw new InvalidOperationException("called Ceiling() with empty symbol table");
             Node x = Ceiling(root, key);
             if (x == null) throw new KeyNotFoundException("ceiling key does not exist");
@@ -406,7 +406,7 @@ namespace algs4net
         ///
         public int Rank(Key key)
         {
-            if (key == null) throw new ArgumentNullException("argument to rank() is null");
+            if (key == null) throw new ArgumentNullException(nameof(key));
             return Rank(key, root);
         }
 
@@ -443,8 +443,8 @@ namespace algs4net
         ///
         public IEnumerable<Key> Keys(Key lo, Key hi)
         {
-            if (lo == null) throw new ArgumentNullException("first argument to Keys() is null");
-            if (hi == null) throw new ArgumentNullException("second argument to Keys() is null");
+            if (lo == null) throw new ArgumentNullException(nameof(lo));
+            if (hi == null) throw new ArgumentNullException(nameof(hi));
 
             Queue<Key> queue = new Queue<Key>();
             Keys(root, queue, lo, hi);
@@ -472,8 +472,8 @@ namespace algs4net
         ///
         public int Size(Key lo, Key hi)
         {
-            if (lo == null) throw new ArgumentNullException("first argument to size() is null");
-            if (hi == null) throw new ArgumentNullException("second argument to size() is null");
+            if (lo == null) throw new ArgumentNullException(nameof(lo));
+            if (hi == null) throw new ArgumentNullException(nameof(hi));
 
             if (lo.CompareTo(hi) > 0) return 0;
             if (Contains(hi)) return Rank(hi) - Rank(lo) + 1;

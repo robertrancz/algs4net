@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D927B75-4B96-4B51-BD94-07CD29E17739}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		img\sort-algs-performance.jpg = img\sort-algs-performance.jpg
 	EndProjectSection
 EndProject
 Global

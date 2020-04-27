@@ -295,7 +295,7 @@ namespace algs4net
         ///
         public static int Discrete(double[] probabilities)
         {
-            if (probabilities == null) throw new ArgumentNullException("Argument array is null");
+            if (probabilities == null) throw new ArgumentNullException(nameof(probabilities));
             const double EPSILON = 1E-14;
             double sum = 0.0;
             for (int i = 0; i < probabilities.Length; i++)
@@ -333,7 +333,7 @@ namespace algs4net
         ///
         public static int Discrete(int[] frequencies)
         {
-            if (frequencies == null) throw new ArgumentNullException("argument array is null");
+            if (frequencies == null) throw new ArgumentNullException(nameof(frequencies));
             long sum = 0;
             for (int i = 0; i < frequencies.Length; i++)
             {
@@ -382,7 +382,7 @@ namespace algs4net
         ///
         public static void Shuffle(Object[] a)
         {
-            if (a == null) throw new ArgumentNullException("argument array is null");
+            if (a == null) throw new ArgumentNullException(nameof(a));
             int n = a.Length;
             for (int i = 0; i < n; i++)
             {
@@ -400,7 +400,7 @@ namespace algs4net
         ///
         public static void Shuffle(double[] a)
         {
-            if (a == null) throw new ArgumentNullException("argument array is null");
+            if (a == null) throw new ArgumentNullException(nameof(a));
             int n = a.Length;
             for (int i = 0; i < n; i++)
             {
@@ -418,7 +418,7 @@ namespace algs4net
         ///
         public static void Shuffle(int[] a)
         {
-            if (a == null) throw new ArgumentNullException("argument array is null");
+            if (a == null) throw new ArgumentNullException(nameof(a));
             int n = a.Length;
             for (int i = 0; i < n; i++)
             {
@@ -439,7 +439,7 @@ namespace algs4net
         ///
         public static void Shuffle(Object[] a, int lo, int hi)
         {
-            if (a == null) throw new ArgumentNullException("argument array is null");
+            if (a == null) throw new ArgumentNullException(nameof(a));
             if (lo < 0 || lo > hi || hi >= a.Length)
             {
                 throw new IndexOutOfRangeException("Illegal subarray range");
@@ -459,14 +459,14 @@ namespace algs4net
         /// <param name="lo">lo the left endpoint (inclusive)</param>
         /// <param name="hi">hi the right endpoint (inclusive)</param>
         /// <exception cref="ArgumentNullException">if <c>a</c> is <c>null</c></exception>
-        /// <exception cref="ArgumentNullException">unless <c>(0 &lt;= lo) and (lo &lt;= hi) and (hi &lt; a.Length)</c></exception>
+        /// <exception cref="ArgumentOutOfRangeException">unless <c>(0 &lt;= lo) and (lo &lt;= hi) and (hi &lt; a.Length)</c></exception>
         ///
         public static void Shuffle(double[] a, int lo, int hi)
         {
-            if (a == null) throw new ArgumentNullException("argument array is null");
+            if (a == null) throw new ArgumentNullException(nameof(a));
             if (lo < 0 || lo > hi || hi >= a.Length)
             {
-                throw new ArgumentNullException("Illegal subarray range");
+                throw new ArgumentOutOfRangeException($"Illegal subarray range: {a}");
             }
             for (int i = lo; i <= hi; i++)
             {
@@ -487,7 +487,7 @@ namespace algs4net
         ///
         public static void Shuffle(int[] a, int lo, int hi)
         {
-            if (a == null) throw new ArgumentNullException("argument array is null");
+            if (a == null) throw new ArgumentNullException(nameof(a));
             if (lo < 0 || lo > hi || hi >= a.Length)
             {
                 throw new IndexOutOfRangeException("Illegal subarray range");
